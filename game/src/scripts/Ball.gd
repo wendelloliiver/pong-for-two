@@ -6,7 +6,7 @@ var score_p2 := 0
 var speed := 150
 var velocity := Vector2.LEFT
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	position += velocity * speed * delta
 	check_collision_test()
 	check_for_scores()
