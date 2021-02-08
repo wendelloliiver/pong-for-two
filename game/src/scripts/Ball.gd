@@ -24,6 +24,7 @@ func check_for_scores() -> void:
 		position = Vector2(360 / 2, 240 / 2)
 
 func hit_factor(ball: Vector2, racket: Vector2, size_racket: float) -> float:
+	
 	return (ball.y - racket.y) / size_racket
 
 func _on_ball_area_entered(area: Area2D) -> void:
