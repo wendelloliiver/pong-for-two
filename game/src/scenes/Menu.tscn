@@ -34,6 +34,7 @@ focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
 text = "Start"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -47,6 +48,7 @@ focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
 text = "Quit"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -75,5 +77,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
 [connection signal="pressed" from="BtnStart" to="." method="_on_BtnStart_pressed"]
 [connection signal="pressed" from="BtnQuit" to="." method="_on_BtnQuit_pressed"]
