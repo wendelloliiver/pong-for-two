@@ -20,4 +20,10 @@ texture = ExtResource( 1 )
 
 [node name="CollisionBall" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="area_entered" from="." to="." method="_on_ball_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
