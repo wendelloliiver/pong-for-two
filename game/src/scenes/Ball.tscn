@@ -22,7 +22,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_ball_area_entered"]

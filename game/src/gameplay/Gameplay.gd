@@ -1,10 +1,15 @@
-extends GlobalConfig
+extends Node
 
 func _ready() -> void:
-	$TimerMenu.wait_time = 3
+	$TimerMenu.wait_time = 1
 	$HUD.visible = true
 	$Ball.visible = true
 	$Rede.visible = true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_q"):
+# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://src/scenes/Menu.tscn")
 
 # warning-ignore:unused_argument
 func _physics_process(delta: float) -> void:
@@ -28,30 +33,7 @@ func _physics_process(delta: float) -> void:
 		$LabelWinner.visible = true
 		$LabelWinner.text = "Player 2, Winner!"
 		$TimerMenu.start()
-	
-	match current_state:
-		GAME_STATE.MENU:
-			if Input.is_key_pressed(KEY_SPACE):
-				current_state = GAME_STATE.SERVER
-		
-		GAME_STATE.SERVER:
-			if SCORE_MAX == score_rqt_left:
-				current_state = GAME_STATE.MENU
-				
-				score_rqt_left  = 0
-				score_rqt_right = 0
-			
-			if SCORE_MAX == score_rqt_right:
-				current_state = GAME_STATE.MENU
-				
-				score_rqt_left  = 0
-				score_rqt_right = 0
-			
-			if Input.is_key_pressed(KEY_SPACE):
-				current_state = GAME_STATE.PLAY
-		
-		GAME_STATE.PLAY:
-			pass
 
 func _on_TimerMenu_timeout() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://src/scenes/Menu.tscn")
